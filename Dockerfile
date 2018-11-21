@@ -8,6 +8,7 @@ ENV LC_TYPE en_US.UTF-8
 # adding python 3
 RUN apk add --no-cache --virtual .build-deps \
   python3 \
+  python3-dev \
   g++ \
   gcc \
   make \
@@ -16,7 +17,6 @@ RUN apk add --no-cache --virtual .build-deps \
   linux-headers \
   pcre-dev \
   postgresql-dev && \
+  python3 -m ensurepip && \
+  pip3 install --upgrade pip setuptools && \
   apk del .build-deps
-
-RUN python3 -m ensurepip && \
-  pip3 install --upgrade pip setuptools
