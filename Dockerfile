@@ -19,5 +19,4 @@ RUN apk add --no-cache --virtual .build-deps \
   apk del .build-deps
 
 RUN python3 -m ensurepip && \
-  pip3 install --upgrade pip setuptools && \
-  rm -r /root/.cache
+  pip3 install --upgrade pip setuptools
