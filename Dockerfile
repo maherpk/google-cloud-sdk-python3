@@ -6,7 +6,7 @@ ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_TYPE en_US.UTF-8
 # adding python 3
-RUN apk add --no-cache --virtual .build-deps \
+RUN apk add --no-cache \
   python3 \
   python3-dev \
   g++ \
@@ -19,4 +19,4 @@ RUN apk add --no-cache --virtual .build-deps \
   postgresql-dev && \
   python3 -m ensurepip && \
   pip3 install --upgrade pip setuptools && \
-  apk del .build-deps
+  rm -r /root/.cache
